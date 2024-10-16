@@ -1,0 +1,198 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustainable Scholars</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'student/css/welcome_styles.css' %}">
+</head>
+<body>
+    <div class="chatbot-container">
+        <button class="chatbot-btn" onclick="openChat()">
+            <i class="fas fa-comments"></i>
+        </button>
+    </div>        
+
+    <!-- Chat popup -->
+    <div id="chatPopup" class="chat-popup">
+        <div class="chat-header">
+            <h4>Chat with us</h4>
+            <span class="close-chat" onclick="closeChat()">&times;</span>
+        </div>
+        <div class="chat-body">
+            <p>How can we help you today?</p>
+        </div>
+    </div>
+
+    <!-- Navbar Section -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #002147;">
+        <a class="navbar-brand" href="{% url 'student:welcome' %}">
+            <img class="logo" src="{% static 'student/img/logo-no-background.png' %}" alt="Sustainable Scholars Logo"/>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-auto">
+                <a class="nav-item nav-link btn btn-outline-light ml-2 active" href="{% url 'student:welcome' %}">Home</a>
+                <a class="nav-item nav-link btn btn-outline-light ml-2" href="{% url 'student:goals' %}">Goals</a>
+                <a class="nav-item nav-link btn btn-outline-light ml-2" href="{% url 'student:student_login' %}">Login</a>
+                <a class="nav-item nav-link btn btn-outline-light ml-2" href=" {% url 'student:register' %}">Sign Up</a>
+            </div>
+           
+        </div>
+    </nav>
+
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+
+            <!-- Welcome Section -->
+            <div class="carousel-item active">
+                <section class="banner">
+                    <div class="container text-center">
+                        <h1 class="display-4">Welcome to Sustainable Scholars</h1>
+                        <p class="lead">Empowering learners with cutting-edge technology and sustainability skills</p>
+                        <a href="#" class="btn btn-primary btn-lg">Get Started</a>
+                    </div>
+                </section>
+            </div>
+
+            <!-- About Section -->
+            <div class="carousel-item">
+                <section class="banner1">
+                    <div class="container text-center">
+                        <h1 class="display-4">About Us</h1>
+                        <p class="lead">Our academy offers a wide range of technology courses designed to empower the next generation of innovators and leaders. From coding basics to advanced software engineering, we provide the knowledge and resources necessary to thrive in the digital world.</p>
+                        <a href="#sectionAbout" class="btn btn-primary btn-lg">Learn More</a>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Courses Section -->
+            <div class="carousel-item">
+                <section style="padding: 50px 20px;" class="banner2">
+                    <div class="container text-center">
+                        <h1 class="display-4">Our Courses</h1>
+                        <p class="lead">Explore our diverse range of courses tailored to equip you with the skills needed for the future.</p>
+                        <div class="row justify-content-center">
+                            <div class="col-lg-4 col-md-6 col-sm-12 mb-2">
+                                <div class="card text-center contact-card">
+                                    <h3 style="color: black;">Carbon Footprint Reduction</h3>
+                                    <p>Explore innovative methods to reduce carbon emissions across industries.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-12 mb-2">
+                                <div class="card text-center contact-card">
+                                    <h3 style="color: black;">Climate Resilient Infrastructure</h3>
+                                    <p>Learn how to design cities that can withstand the challenges of a changing climate.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-12 mb-2">
+                                <div class="card text-center contact-card">
+                                    <h3 style="color: black;">Renewable Energy Adoption</h3>
+                                    <p>Master the skills needed to scale solar, wind, and geothermal energy solutions.</p>
+                                </div>
+                            </div>                            
+                        </div>
+                        <a href="{% url 'student:courses' %}" class="btn btn-primary btn-lg mt-1">See All Courses</a>
+                    </div>
+                </section>
+            </div>
+
+        </div>
+
+        <!-- Carousel Controls -->
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <!-- About Us Section -->
+    <div id="sectionAbout" class="container text-center mt-5">
+        <h2>About Us</h2>
+        <p>Welcome to our <strong>Sustainable Goal Online Course!</strong> Our mission is to empower individuals, organizations, and communities to take meaningful action against climate change and to foster a sustainable future for our planet.</p>
+
+        <h3>Who We Are:</h3>
+        <p>We are a passionate team of environmentalists, educators, and innovators dedicated to making a positive impact on the world. With years of experience in sustainability, climate science, and community engagement, our team has come together to create a comprehensive learning platform that addresses the urgent need for climate action.</p>
+
+        <h3>Our Vision:</h3>
+        <p>We envision a world where everyone is equipped with the knowledge and tools to combat climate change. By fostering a global community of informed and proactive individuals, we aim to inspire collective efforts towards reducing greenhouse gas emissions, protecting ecosystems, and promoting sustainable practices.</p>
+
+        <h3>What We Offer:</h3>
+        <ul class="list-unstyled">
+            <li><strong>Expert-Led Modules:</strong> Learn from industry experts and thought leaders in the field of climate science and sustainability.</li>
+            <li><strong>Interactive Learning:</strong> Engage with a variety of multimedia resources, including videos, quizzes, and discussion forums to enhance your learning experience.</li>
+            <li><strong>Real-World Applications:</strong> Discover how to implement sustainable practices in your daily life and within your organization, ensuring your actions contribute to climate resilience.</li>
+            <li><strong>Community Support:</strong> Join a network of like-minded individuals who are passionate about climate action, sharing ideas and strategies for a sustainable future.</li>
+        </ul>
+
+        <h3>Join Us in Making a Difference:</h3>
+        <p>We believe that education is the first step towards meaningful change. Together, we can make a significant impact on our environment and society. By enrolling in our course, you are not just gaining knowledge—you are joining a movement dedicated to protecting our planet for future generations.</p>
+
+        <h3>Contact Us:</h3>
+        <p>Have questions or want to learn more? Feel free to reach out to us at <a href="mailto:sssdg13@example.com">sssdg13@example.com</a> for more information.</p>
+
+        <p><strong>Let’s take action against climate change, one course at a time!</strong></p>
+    </div>
+
+    <!-- Contact Information Section -->
+    <div class="contact-section mt-5">
+        <div class="container text-center">
+            <h1 class="display-4">Get in Touch</h1>
+            <div class="row justify-content-center">
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="contact-card">
+                        <i class="fas fa-phone-alt fa-2x mb-2"></i>
+                        <h4>Phone</h4>
+                        <p><a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="contact-card">
+                        <i class="fas fa-envelope fa-2x mb-2"></i>
+                        <h4>Email</h4>
+                        <p><a href="mailto:sssdg13@example.com">sssdg13@example.com</a></p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="contact-card">
+                        <i class="fas fa-map-marker-alt fa-2x mb-2"></i>
+                        <h4>Location</h4>
+                        <p>123 Green Way, Eco City, USA</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="bg-dark text-light text-center mt-5">
+        <div class="container">
+            <p class="mb-0" style="padding: 15px;">© 2024 Sustainable Scholars. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{% static 'student/js/script.js' %}"></script>
+    <script>
+        function openChat() {
+            document.getElementById("chatPopup").style.display = "block";
+        }
+
+        function closeChat() {
+            document.getElementById("chatPopup").style.display = "none";
+        }
+    </script>
+</body>
+</html>

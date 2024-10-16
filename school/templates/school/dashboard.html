@@ -1,0 +1,23 @@
+<h1>School Dashboard</h1>
+
+<h2>Registered Students</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Date Joined</th>
+            <th>Authorized</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for student in students %}
+        <tr>
+            <td>{{ student.username }}</td>
+            <td>{{ student.email }}</td>
+            <td>{{ student.date_joined }}</td>
+            <td>{{ student.is_authorized|yesno:"Yes,No" }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

@@ -1,0 +1,186 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+html {
+    scroll-behavior: smooth; /* Enables smooth scrolling */
+}
+
+
+.navbar {
+    position: relative;
+    z-index: 1000;
+    background: linear-gradient(90deg, #004d7f, #3f7590); /* Gradient background */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    padding: 10px 20px; /* More padding for a better look */
+}
+
+.navbar-brand img {
+    transition: transform 0.3s, filter 0.3s; /* Adding filter transition */
+}
+
+.navbar-brand img:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1); /* Slight brightness increase on hover */
+}
+
+.navbar-nav .nav-link {
+    margin-right: 25px;
+    color: white;
+    font-weight: 500; /* Slightly bolder text */
+    text-transform: uppercase; /* Uppercase text for a modern look */
+    transition: color 0.3s, transform 0.3s; /* Added transform transition */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #d3b50b; /* Gold color on hover */
+    transform: translateY(-3px); /* Slight upward movement on hover */
+}
+
+.btn-outline-light {
+    border-color: white;
+    color: white; /* Ensure button text is white */
+    transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Added transform transition */
+}
+
+.btn-outline-light:hover {
+    background-color: white;
+    color: #004d7f; /* Change text color to match the navbar */
+    transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+.logo {
+    height: 60px; /* Slightly larger logo */
+    width: 60px; /* Slightly larger logo */
+    transition: .5s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+    filter: brightness(1.1); /* Increase brightness on hover */
+}
+
+.navbar .logo {
+    font-size: 1.8em; /* Slightly larger font for the logo */
+    font-weight: bold;
+    color: #fff; /* Logo color */
+}
+
+.navbar .menu {
+    display: flex;
+    align-items: center; /* Centering items vertically */
+}
+
+/* Toggle Button */
+.navbar-toggler {
+    border: none; /* Remove default border */
+    background-color: transparent; /* Make background transparent */
+}
+
+.navbar-toggler:focus {
+    outline: none; /* Remove focus outline */
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Navbar links default state */
+.navbar-nav .nav-link {
+    margin-right: 20px;
+    color: white;
+    transition: color 0.3s;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.3s ease-in-out, transform 0.3s ease; /* Smooth transition effect */
+}
+
+/* Change color to gold when hovered */
+.navbar-nav .nav-link:hover {
+    color: #d3b50b; /* Change to gold on hover */
+    transform: translateY(-3px); /* Slight upward movement on hover */
+}
+
+/* Optional: Specific styling for the Sign Up button */
+.navbar-nav .btn-outline-light:hover {
+    color: #004d7f; /* Change the font color of the button on hover */
+    border-color: #004d7f; /* Change the border color to match */
+}
+
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none; /* Remove underline from the text */
+    color: inherit; /* Inherit text color from parent */
+}
+
+.card:hover {
+    transform: scale(1.05);
+    color: black;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Chatbot button container */
+.chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+/* Chatbot button */
+.chatbot-btn {
+    background-color: #4CAF50; /* Customize as needed */
+    border: none;
+    border-radius: 50%;
+    height: 60px;
+    padding: 15px;
+    cursor: pointer;
+    color: white;
+    font-size: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.chat-icon {
+    width: 30px;
+    height: 30px;
+}
+
+/* Chat popup box */
+.chat-popup {
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: white;
+    z-index: 1000;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Chat popup header */
+.chat-header {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Chat popup body */
+.chat-body {
+    padding: 15px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+/* Close button */
+.close-chat {
+    cursor: pointer;
+    font-size: 20px;
+}

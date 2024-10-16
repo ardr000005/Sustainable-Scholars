@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            color: #666;
+            line-height: 1.5;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            color: white;
+            background-color: #007bff;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Profile Information</h2>
+
+        <p><strong>Username:</strong> {{ school.username }}</p>
+        <p><strong>Email:</strong> {{ school.email }}</p>
+        <p><strong>Date Joined:</strong> {{ school.date_joined }}</p>
+        <p><strong>Status:</strong> {% if school.is_active %} Active {% else %} Inactive {% endif %}</p>
+        <p><strong>Verified:</strong> {% if school.is_verified %} Yes {% else %} No {% endif %}</p>
+
+        <a href="{% url 'school:school_dashboard' %}">Back to Dashboard</a>  <!-- Link back to dashboard -->
+    </div>
+</body>
+</html>

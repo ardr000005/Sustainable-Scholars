@@ -1,0 +1,481 @@
+.contact-card {
+    border: 1px solid #007bff; /* Card border */
+    border-radius: 10px; /* Rounded corners */
+    transition: transform 0.3s; /* Animation for hover effect */
+}
+
+.contact-card:hover {
+    transform: scale(1.05); /* Slightly scale on hover */
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+html {
+    scroll-behavior: smooth; /* Enables smooth scrolling */
+}
+
+
+.navbar {
+    position: relative;
+    z-index: 1000;
+    background: linear-gradient(90deg, #004d7f, #3f7590); /* Gradient background */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    padding: 10px 20px; /* More padding for a better look */
+}
+
+.navbar-brand img {
+    transition: transform 0.3s, filter 0.3s; /* Adding filter transition */
+}
+
+.navbar-brand img:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1); /* Slight brightness increase on hover */
+}
+
+.navbar-nav .nav-link {
+    margin-right: 25px;
+    color: white;
+    font-weight: 500; /* Slightly bolder text */
+    text-transform: uppercase; /* Uppercase text for a modern look */
+    transition: color 0.3s, transform 0.3s; /* Added transform transition */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #d3b50b; /* Gold color on hover */
+    transform: translateY(-3px); /* Slight upward movement on hover */
+}
+
+.btn-outline-light {
+    border-color: white;
+    color: white; /* Ensure button text is white */
+    transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Added transform transition */
+}
+
+.btn-outline-light:hover {
+    background-color: white;
+    color: #004d7f; /* Change text color to match the navbar */
+    transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+.logo {
+    height: 60px; /* Slightly larger logo */
+    width: 60px; /* Slightly larger logo */
+    transition: .5s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+    filter: brightness(1.1); /* Increase brightness on hover */
+}
+
+.navbar .logo {
+    font-size: 1.8em; /* Slightly larger font for the logo */
+    font-weight: bold;
+    color: #fff; /* Logo color */
+}
+
+.navbar .menu {
+    display: flex;
+    align-items: center; /* Centering items vertically */
+}
+
+/* Toggle Button */
+.navbar-toggler {
+    border: none; /* Remove default border */
+    background-color: transparent; /* Make background transparent */
+}
+
+.navbar-toggler:focus {
+    outline: none; /* Remove focus outline */
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Navbar links default state */
+.navbar-nav .nav-link {
+    margin-right: 20px;
+    color: white;
+    transition: color 0.3s;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.3s ease-in-out, transform 0.3s ease; /* Smooth transition effect */
+}
+
+/* Change color to gold when hovered */
+.navbar-nav .nav-link:hover {
+    color: #d3b50b; /* Change to gold on hover */
+    transform: translateY(-3px); /* Slight upward movement on hover */
+}
+
+/* Optional: Specific styling for the Sign Up button */
+.navbar-nav .btn-outline-light:hover {
+    color: #004d7f; /* Change the font color of the button on hover */
+    border-color: #004d7f; /* Change the border color to match */
+}
+
+.contact-section {
+    background-color: #f8f9fa; /* Light background color */
+    padding: 30px 15px; /* Reduced padding */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    margin: 30px 0; /* Spacing from other sections */
+}
+
+.contact-card {
+    background-color: #007bff; /* Footer color */
+    color: white; /* Text color */
+    border-radius: 10px; /* Rounded corners for cards */
+    padding: 20px; /* Padding inside cards */
+    margin: 10px; /* Spacing between cards */
+    transition: transform 0.3s; /* Animation effect on hover */
+}
+
+.contact-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+.contact-card h4 {
+    margin: 10px 0; /* Margin for heading */
+}
+
+.contact-card p {
+    margin: 5px 0; /* Margin for paragraph */
+}
+
+.contact-card a {
+    color: white; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
+.contact-card a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+.social-icons {
+    margin-top: 20px; /* Space above social icons */
+}
+
+.social-icons .icon {
+    color: #007bff; /* Icon color */
+    margin: 0 10px; /* Spacing between icons */
+    font-size: 1.5em; /* Icon size */
+    transition: color 0.3s; /* Transition for hover effect */
+}
+
+.social-icons .icon:hover {
+    color: #0056b3; /* Darker shade on hover */
+}
+
+/* Banner Section */
+.banner {
+    background-image: url('https://img.freepik.com/free-photo/planet-earth-surrounded-by-nature-vegetation_23-2151587916.jpg?t=st=1728128348~exp=1728131948~hmac=2ba41fdd8ace776749a8a9b8738344ca6a49417b4c50a928e53a228ee53aeeb5&w=996');
+    background-size: cover;
+    height: 470px;
+    background-position: center;
+    color: rgb(255, 255, 255); /* Change text to white for better contrast */
+    text-align: center;
+    padding: 150px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.banner1 {
+    background-image: url('https://img.freepik.com/free-photo/photorealistic-earth-planet_23-2151075938.jpg?t=st=1728128510~exp=1728132110~hmac=52cfa3c7ee8769189c5475962cc83fd96117f40059b4e9f348335d8e9331d25f&w=996');
+    background-size: cover;
+    height: 470px;
+    background-position: center;
+    color: rgb(255, 255, 255); /* Change text to white for better contrast */
+    text-align: center;
+    padding: 150px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.banner2 {
+    background-image: url('https://img.freepik.com/free-photo/3d-render-grassy-globe-with-trees-barren-landscape_1048-6033.jpg?t=st=1728128371~exp=1728131971~hmac=0bf083e03bea55e87b110cf2364dcfd5602af1fed39e9edd76666cc5b3f9c3c6&w=900');
+    background-size: cover;
+    height: 470px;
+    background-position: center;
+    color: rgb(255, 255, 255); /* Change text to white for better contrast */
+    text-align: center;
+    padding: 150px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text visibility */
+    z-index: -1;
+}
+.banner1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text visibility */
+    z-index: -1;
+}
+.banner2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text visibility */
+    z-index: -1;
+}
+
+.banner h1 {
+    font-size: 3em;
+    margin: 0;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Text shadow for readability */
+}
+.banner1 h1 {
+    font-size: 3em;
+    margin: 0;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Text shadow for readability */
+}
+.banner2 h1 {
+    font-size: 3em;
+    margin: 0;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Text shadow for readability */
+}
+
+.banner p {
+    font-size: 1.2em;
+    margin-top: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+.banner1 p {
+    font-size: 1.2em;
+    margin-top: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+.banner2 p {
+    font-size: 1.2em;
+    margin-top: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.card h3 {
+    color: black; /* Black color for course headings */
+}
+
+.banner2 h1 {
+    font-size: 3em;
+    margin: 0;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Text shadow for readability */
+}
+
+.banner2 p {
+    font-size: 1.2em;
+    margin-top: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+#sectionAbout {
+    background-color: #f9f9f9; /* Light background for contrast */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    max-width: 800px; /* Limit the width */
+    margin: 20px auto; /* Center it on the page */
+}
+
+#sectionAbout h2 {
+    color: #004d7f; /* Dark blue color for the heading */
+    font-size: 2em;
+    margin-bottom: 10px; /* Space below the heading */
+}
+
+#sectionAbout h3 {
+    color: #007acc; /* Bright blue for subheadings */
+    font-size: 1.5em;
+    margin-top: 20px; /* Space above the subheading */
+}
+
+#sectionAbout p {
+    line-height: 1.6; /* Improved readability */
+    color: #333; /* Dark gray for text */
+}
+
+#sectionAbout ul {
+    margin-left: 20px; /* Indent the list */
+    list-style-type: disc; /* Bullet points for list */
+}
+
+#sectionAbout a {
+    color: #d3b50b; /* Gold color for links */
+    text-decoration: none; /* Remove underline */
+}
+
+#sectionAbout a:hover {
+    text-decoration: underline; /* Underline on hover for links */
+}
+
+/* Section Styles */
+.section {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.section p {
+    font-size: 1.1em;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #333;
+}
+
+.section-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.card {
+    background-color: rgb(213, 243, 247);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 330px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Lift effect on hover */
+}
+
+.card p{
+    color: gray;
+}
+
+.card h5 {
+    color: black;
+    font-weight: bold;
+    font-size: 1.4em;
+}
+
+/* Footer */
+.footer {
+    background-color: #002147;
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    position: relative;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 1em;
+}
+
+.footer a {
+    color: #00d1b2;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) and (max-width: 575px) {
+    .navbar {
+        margin-right: auto;
+    }
+
+    .navbar-toggler {
+        margin-left: auto; /* Move toggle button to the right */
+    }
+    .navbar-nav .nav-link {
+        margin-top: 20px;
+        font-size: 0.95em;
+    }
+}
+
+/* Chatbot button container */
+.chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+/* Chatbot button */
+.chatbot-btn {
+    background-color: #4CAF50; /* Customize as needed */
+    border: none;
+    border-radius: 50%;
+    height: 60px;
+    padding: 15px;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.chat-icon {
+    width: 30px;
+    height: 30px;
+}
+
+/* Chat popup box */
+.chat-popup {
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: white;
+    z-index: 1000;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Chat popup header */
+.chat-header {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Chat popup body */
+.chat-body {
+    padding: 15px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+/* Close button */
+.close-chat {
+    cursor: pointer;
+    font-size: 20px;
+}

@@ -1,0 +1,358 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Footprint Reduction | Sustainable Scholars</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'student/css/major_styles1.css' %}">
+    <style>
+        /* Body Styling */
+        body {
+            background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Chatbot Button Styling */
+        .chatbot-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .chatbot-btn {
+            background-color: #28a745;
+            border: none;
+            color: white;
+            padding: 15px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-size: 24px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Chat Popup */
+        .chat-popup {
+            display: none;
+            position: fixed;
+            bottom: 90px;
+            right: 30px;
+            width: 300px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .chat-header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .close-chat {
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        /* Card Styling */
+        .contact-card {
+            border-radius: 15px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border: none;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-card .btn-primary {
+            border-radius: 25px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            border: none;
+            transition: background-color 0.3s;
+        }
+
+        .contact-card .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer Styling */
+        .footer {
+            background: linear-gradient(135deg, #002147, #000000);
+            color: white;
+            padding: 15px;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+    </style>
+    <style>
+        /* Body Styling */
+        body {
+            background: linear-gradient(135deg, #007991, #78ffd6);
+            font-family: 'Helvetica Neue', sans-serif;
+            color: #fff;
+        }
+
+        h1, h6 {
+            font-weight: 600;
+        }
+
+        /* Card Styling */
+        .contact-card {
+            width: 100%;
+            margin: 30px 0;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: scale(1.05);
+        }
+
+        .sub-cards {
+            width: 100%;
+        }
+
+        .card-body {
+            width: 100%;
+        }
+
+        /* Button Styles */
+        .btn-success, .btn-info {
+            border-radius: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        .btn-success:hover, .btn-info:hover {
+            background-color: #005f73;
+        }
+
+        .video-embed, .ppt-embed {
+            margin-top: 20px;
+        }
+
+        /* Modal Styling */
+        .modal-content {
+            background-color: #002147;
+            color: white;
+            border-radius: 10px;
+        }
+
+        /* Close Button Styling */
+        .close {
+            color: #fff;
+        }
+
+    </style>
+    <style>
+        /* Additional styling */
+        .modal-content {
+            background-color: #002147;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Chatbot Button -->
+    <div class="chatbot-container">
+        <button class="chatbot-btn" onclick="openChat()">
+            <i class="fas fa-comments"></i>
+        </button>
+    </div>
+
+    <!-- Chat Popup -->
+    <div id="chatPopup" class="chat-popup">
+        <div class="chat-header">
+            <h4>Chat with us</h4>
+            <span class="close-chat" onclick="closeChat()">&times;</span>
+        </div>
+        <div class="chat-body">
+            <p>How can we help you today?</p>
+        </div>
+    </div>
+    <!-- Navbar Section -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #002147;">
+        <a class="navbar-brand" href="{% url 'student:welcome' %}">
+            <img class="logo" src="{% static 'student/img/logo-no-background.png' %}" alt="Sustainable Scholars Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-auto">
+                <a class="nav-item nav-link btn btn-outline-light ml-2" href="{% url 'student:welcome' %}">Home</a>
+                <a class="nav-item nav-link btn btn-outline-light ml-2 active" href="{% url 'student:goals' %}">Goals</a>
+                <a class="nav-item nav-link btn btn-outline-light ml-2" href="#">Login</a>
+                <a class="nav-item nav-link btn btn-outline-light ml-2" href="#">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+    <h1 class="display-4 text-center mt-5">Carbon Footprint Reduction</h1>
+    <p class="lead text-center mb-5 mt-5">
+        Carbon Footprint Reduction aligns with Sustainable Development Goal 13 by promoting actions that mitigate climate change through innovative carbon-cutting strategies. It encourages individuals and organizations to adopt sustainable practices that reduce greenhouse gas emissions, helping to protect the planet for future generations.
+    </p>
+
+    <!-- Content Section -->
+    <div class="container mt-5">
+        <div class="col-md-12">
+
+            <!-- Video Card -->
+            <div class="card text-center contact-card">
+                <div class="sub-cards">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="card-subtitle mb-2">Watch Video</h6>
+                            <button class="btn btn-success" data-toggle="modal" data-target="#videoModal">
+                                <i class="fas fa-play-circle"></i> Play Video
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PowerPoint Card -->
+            <div class="card text-center contact-card">
+                <div class="sub-cards">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="card-subtitle mb-2">View PPT</h6>
+                            <button class="btn btn-info" data-toggle="modal" data-target="#pptModal">
+                                <i class="fas fa-file-powerpoint"></i> View Presentation
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Video Modal -->
+<div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="videoModalLabel">Watch Video</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <video id="myVideo" width="100%" height="400" controls>
+                    <source src="{% static 'student/videos/1.mp4' %}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quiz Modal -->
+<div class="modal fade" id="quizModal" tabindex="-1" role="dialog" aria-labelledby="quizModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="quizModalLabel">Pop Quiz!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>What is the main topic of the video?</p>
+                <form id="quizForm">
+                    <div class="form-group">
+                        <label><input type="radio" name="answer" value="A"> A) Climate Change</label><br>
+                        <label><input type="radio" name="answer" value="B"> B) Renewable Energy</label><br>
+                        <label><input type="radio" name="answer" value="C"> C) Carbon Footprint Reduction</label><br>
+                        <label><input type="radio" name="answer" value="D"> D) Pollution</label><br>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="submitQuiz()">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Show quiz modal at halfway point and end of video
+    const video = document.getElementById("myVideo");
+    const quizModal = $("#quizModal");
+    
+    // Event listener for video time updates
+    video.addEventListener('timeupdate', function() {
+        const duration = video.duration;
+        const currentTime = video.currentTime;
+
+        // Show quiz at halfway point
+        if (currentTime >= duration / 2 && currentTime < duration / 2 + 1) {
+            quizModal.modal('show');
+        }
+
+        // Show quiz at the end
+        if (currentTime >= duration - 1 && currentTime < duration) {
+            quizModal.modal('show');
+        }
+    });
+
+    // Function to handle quiz submission
+    function submitQuiz() {
+        const selectedOption = document.querySelector('input[name="answer"]:checked');
+        if (selectedOption) {
+            alert(`You selected: ${selectedOption.value}`);
+            $('#quizModal').modal('hide');
+        } else {
+            alert('Please select an answer!');
+        }
+    }
+</script>
+
+    <!-- PPT Modal -->
+<div class="modal fade" id="pptModal" tabindex="-1" role="dialog" aria-labelledby="pptModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="pptModalLabel">View Presentation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Embed using Microsoft Office Viewer -->
+                <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQyVJ6Uf79yM8Yz-CeKcGmlEqZZoe9XoPEfeDGPW_Yl272fYVvE16qg3FlbP4tfqQ/embed?start=true&loop=true&delayms=10000" frameborder="0" width="100%" height="400" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

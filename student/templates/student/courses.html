@@ -1,0 +1,178 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Courses | Sustainable Scholars</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="{% static 'student/css/major_styles1.css' %}">
+    </head>
+<body>
+    <div class="chatbot-container">
+        <button class="chatbot-btn" onclick="openChat()">
+            <i class="fas fa-comments"></i>
+        </button>
+    </div>
+    
+      
+      <div id="chatPopup" class="chat-popup">
+        <!-- Chat content goes here -->
+        <div class="chat-header">
+          <h4>Chat with us</h4>
+          <span class="close-chat" onclick="closeChat()">&times;</span>
+        </div>
+        <div class="chat-body">
+          <!-- Add your chat interface here -->
+          <p>How can we help you today?</p>
+        </div>
+      </div>    
+    <!-- Navbar Section -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #002147;">
+        <a class="navbar-brand" href="{% url 'student:welcome' %}">
+            <img class="logo" src="{% static 'student/img/logo-no-background.png' %}" alt="Sustainable Scholars Logo"/>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-auto">
+                <a class="nav-item nav-link btn btn-outline-light ml-2" href="{% url 'student:welcome' %}">Home</a>
+                <a class="nav-item nav-link btn btn-outline-light ml-2 active" href="{% url 'student:goals' %}">Goals</a>
+                <a class="nav-item nav-link btn btn-outline-light ml-2" href="{% url 'student:student_login' %}">Login</a>
+                <a class="nav-item nav-link btn btn-outline-light ml-2" href="{% url 'student:register' %}">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Course Section -->
+    <div class="container mt-5">
+        <h1 class="display-4 text-center">Our Courses</h1>
+        <p class="lead text-center mb-5">Explore our diverse range of courses tailored to equip you with the skills needed for the future.</p>
+        <div class="row justify-content-center">
+
+            <div class="col-md-4 mb-4">
+                <div class="card text-center contact-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Carbon Footprint Reduction</h5>
+                        <p class="card-text">Innovations in reducing carbon emissions.</p>
+                        <a href="{% url 'student:carbon' %}" class="btn btn-primary">Start</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card text-center contact-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Climate Resilient Infrastructure</h5>
+                        <p class="card-text">Designing future-proof cities.</p>
+                        <a href="#" class="btn btn-primary">Start</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card text-center contact-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Renewable Energy Adoption</h5>
+                        <p class="card-text">Scaling solar, wind, and geothermal solutions.</p>
+                        <a href="#" class="btn btn-primary">Start</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card text-center contact-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Climate Change Policy & Governance</h5>
+                        <p class="card-text">Global and local climate agreements.</p>
+                        <a href="#" class="btn btn-primary">Start</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card text-center contact-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Climate Justice</h5>
+                        <p class="card-text">Addressing the inequitable impacts of climate change.</p>
+                        <a href="#" class="btn btn-primary">Start</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card text-center contact-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Reforestation & Afforestation</h5>
+                        <p class="card-text">Restoring ecosystems for carbon sequestration.</p>
+                        <a href="#" class="btn btn-primary">Start</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card text-center contact-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Sustainable Agriculture</h5>
+                        <p class="card-text">Minimizing emissions from food production.</p>
+                        <a href="#" class="btn btn-primary">Start</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card text-center contact-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Disaster Risk Reduction</h5>
+                        <p class="card-text">Enhancing preparedness for climate-induced disasters.</p>
+                        <a href="#" class="btn btn-primary">Start</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card text-center contact-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Green Finance</h5>
+                        <p class="card-text">Funding climate adaptation and mitigation.</p>
+                        <a href="#" class="btn btn-primary">Start</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card text-center contact-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Ocean Acidification</h5>
+                        <p class="card-text">Tackling the impacts on marine life and ecosystems.</p>
+                        <a href="#" class="btn btn-primary">Start</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2024 Sustainable Scholars. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        function openChat() {
+          document.getElementById("chatPopup").style.display = "block";
+        }
+      
+        function closeChat() {
+          document.getElementById("chatPopup").style.display = "none";
+        }
+      </script>
+</body>
+</html>

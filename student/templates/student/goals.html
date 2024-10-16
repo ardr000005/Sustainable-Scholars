@@ -1,0 +1,268 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goals | Sustainable Scholars</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'student/css/major_styles1.css' %}">
+</head>
+<body>
+    <div class="chatbot-container">
+        <button class="chatbot-btn" onclick="openChat()">
+            <i class="fas fa-comments"></i>
+        </button>
+    </div>
+    
+      
+      <div id="chatPopup" class="chat-popup">
+        <!-- Chat content goes here -->
+        <div class="chat-header">
+          <h4>Chat with us</h4>
+          <span class="close-chat" onclick="closeChat()">&times;</span>
+        </div>
+        <div class="chat-body">
+          <!-- Add your chat interface here -->
+          <p>How can we help you today?</p>
+        </div>
+      </div>
+      
+<!-- Navbar Section -->
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #002147;">
+    <a class="navbar-brand" href="{% url 'student:welcome' %}">
+        <img class="logo" src="{% static 'student/img/logo-no-background.png' %}" alt="Sustainable Scholars Logo"/>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+            <a class="nav-item nav-link btn btn-outline-light ml-2" href="{% url 'student:welcome' %}">Home</a>
+            <a class="nav-item nav-link btn btn-outline-light ml-2 active" href="{% url 'student:goals' %}">Goals</a>
+            <a class="nav-item nav-link btn btn-outline-light ml-2" href="{% url 'student:student_login' %}">Login</a>
+            <a class="nav-item nav-link btn btn-outline-light ml-2" href="{% url 'student:register' %}">Sign Up</a>
+        </div>
+    </div>
+</nav>
+
+<!-- SDGs Section -->
+<div class="container mt-5">
+    <h1 class="text-center">Sustainable Development Goals</h1>
+    <p class="text-center">The 17 Goals to Transform Our World</p>
+    
+    <div class="row">
+        <!-- Goal 1: No Poverty -->
+        <div class="col-md-4 mb-4">
+            <a href="#" class="card text-decoration-none">
+                <div class="card-body text-center">
+                    <i class="fas fa-hand-holding-usd fa-4x mb-3" style="color: #f8c40e;"></i>
+                    <h5 class="card-title">1. No Poverty</h5>
+                    <p class="card-text">End poverty in all its forms everywhere.</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Goal 2: Zero Hunger -->
+        <div class="col-md-4 mb-4">
+            <a href="#" class="card text-decoration-none">
+                <div class="card-body text-center">
+                    <i class="fas fa-utensils fa-4x mb-3" style="color: #d95d19;"></i>
+                    <h5 class="card-title">2. Zero Hunger</h5>
+                    <p class="card-text">End hunger, achieve food security and improved nutrition, and promote sustainable agriculture.</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Goal 3: Good Health and Well-being -->
+        <div class="col-md-4 mb-4">
+            <a href="#" class="card text-decoration-none">
+                <div class="card-body text-center">
+                    <i class="fas fa-heartbeat fa-4x mb-3" style="color: #e65c00;"></i>
+                    <h5 class="card-title">3. Good Health and Well-being</h5>
+                    <p class="card-text">Ensure healthy lives and promote well-being for all at all ages.</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Goal 4: Quality Education -->
+        <div class="col-md-4 mb-4">
+            <a href="#" class="card text-decoration-none">
+                <div class="card-body text-center">
+                    <i class="fas fa-book-open fa-4x mb-3" style="color: #007bff;"></i>
+                    <h5 class="card-title">4. Quality Education</h5>
+                    <p class="card-text">Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all.</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Goal 5: Gender Equality -->
+        <div class="col-md-4 mb-4">
+            <a href="#" class="card text-decoration-none">
+                <div class="card-body text-center">
+                    <i class="fas fa-female fa-4x mb-3" style="color: #e75480;"></i>
+                    <h5 class="card-title">5. Gender Equality</h5>
+                    <p class="card-text">Achieve gender equality and empower all women and girls.</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Goal 6: Clean Water and Sanitation -->
+        <div class="col-md-4 mb-4">
+            <a href="#" class="card text-decoration-none">
+                <div class="card-body text-center">
+                    <i class="fas fa-tint fa-4x mb-3" style="color: #00bfff;"></i>
+                    <h5 class="card-title">6. Clean Water and Sanitation</h5>
+                    <p class="card-text">Ensure availability and sustainable management of water and sanitation for all.</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Goal 7: Affordable and Clean Energy -->
+        <div class="col-md-4 mb-4">
+            <a href="#" class="card text-decoration-none">
+                <div class="card-body text-center">
+                    <i class="fas fa-bolt fa-4x mb-3" style="color: #ffcc00;"></i>
+                    <h5 class="card-title">7. Affordable and Clean Energy</h5>
+                    <p class="card-text">Ensure access to affordable, reliable, sustainable, and modern energy for all.</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Goal 8: Decent Work and Economic Growth -->
+        <div class="col-md-4 mb-4">
+            <a href="#" class="card text-decoration-none">
+                <div class="card-body text-center">
+                    <i class="fas fa-briefcase fa-4x mb-3" style="color: #007bff;"></i>
+                    <h5 class="card-title">8. Decent Work and Economic Growth</h5>
+                    <p class="card-text">Promote sustained, inclusive and sustainable economic growth, full and productive employment, and decent work for all.</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Goal 9: Industry, Innovation, and Infrastructure -->
+        <div class="col-md-4 mb-4">
+            <a href="#" class="card text-decoration-none">
+                <div class="card-body text-center">
+                    <i class="fas fa-industry fa-4x mb-3" style="color: #d95d19;"></i>
+                    <h5 class="card-title">9. Industry, Innovation, and Infrastructure</h5>
+                    <p class="card-text">Build resilient infrastructure, promote inclusive and sustainable industrialization, and foster innovation.</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Goal 10: Reduced Inequalities -->
+        <div class="col-md-4 mb-4">
+            <a href="#" class="card text-decoration-none">
+                <div class="card-body text-center">
+                    <i class="fas fa-equals fa-4x mb-3" style="color: #e65c00;"></i>
+                    <h5 class="card-title">10. Reduced Inequalities</h5>
+                    <p class="card-text">Reduce inequality within and among countries.</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Goal 11: Sustainable Cities and Communities -->
+        <div class="col-md-4 mb-4">
+            <a href="#" class="card text-decoration-none">
+                <div class="card-body text-center">
+                    <i class="fas fa-city fa-4x mb-3" style="color: #00bfff;"></i>
+                    <h5 class="card-title">11. Sustainable Cities and Communities</h5>
+                    <p class="card-text">Make cities and human settlements inclusive, safe, resilient, and sustainable.</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Goal 12: Responsible Consumption and Production -->
+        <div class="col-md-4 mb-4">
+            <a href="#" class="card text-decoration-none">
+                <div class="card-body text-center">
+                    <i class="fas fa-recycle fa-4x mb-3" style="color: #007bff;"></i>
+                    <h5 class="card-title">12. Responsible Consumption and Production</h5>
+                    <p class="card-text">Ensure sustainable consumption and production patterns.</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Goal 13: Climate Action -->
+        <div class="col-md-4 mb-4">
+            <a href="{% url 'student:courses' %}" class="card text-decoration-none">
+                <div class="card-body text-center">
+                    <i class="fas fa-tree fa-4x mb-3" style="color: #e65c00;"></i>
+                    <h5 class="card-title">13. Climate Action</h5>
+                    <p class="card-text">Take urgent action to combat climate change and its impacts.</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Goal 14: Life Below Water -->
+        <div class="col-md-4 mb-4">
+            <a href="#" class="card text-decoration-none">
+                <div class="card-body text-center">
+                    <i class="fas fa-water fa-4x mb-3" style="color: #00bfff;"></i>
+                    <h5 class="card-title">14. Life Below Water</h5>
+                    <p class="card-text">Conserve and sustainably use the oceans, seas and marine resources for sustainable development.</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Goal 15: Life on Land -->
+        <div class="col-md-4 mb-4">
+            <a href="#" class="card text-decoration-none">
+                <div class="card-body text-center">
+                    <i class="fas fa-tree fa-4x mb-3" style="color: #228B22;"></i>
+                    <h5 class="card-title">15. Life on Land</h5>
+                    <p class="card-text">Protect, restore and promote sustainable use of terrestrial ecosystems, sustainably manage forests, combat desertification, and halt and reverse land degradation and halt biodiversity loss.</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Goal 16: Peace, Justice, and Strong Institutions -->
+        <div class="col-md-4 mb-4">
+            <a href="#" class="card text-decoration-none">
+                <div class="card-body text-center">
+                    <i class="fas fa-gavel fa-4x mb-3" style="color: #007bff;"></i>
+                    <h5 class="card-title">16. Peace, Justice, and Strong Institutions</h5>
+                    <p class="card-text">Promote peaceful and inclusive societies for sustainable development, provide access to justice for all, and build effective, accountable institutions at all levels.</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Goal 17: Partnerships for the Goals -->
+        <div class="col-md-4 mb-4">
+            <a href="#" class="card text-decoration-none">
+                <div class="card-body text-center">
+                    <i class="fas fa-handshake fa-4x mb-3" style="color: #f8c40e;"></i>
+                    <h5 class="card-title">17. Partnerships for the Goals</h5>
+                    <p class="card-text">Strengthen the means of implementation and revitalize the global partnership for sustainable development.</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Footer Section -->
+<footer class="bg-dark text-light text-center mt-5">
+    <div class="container">
+        <p class="mb-0" style="padding: 15px;">© 2024 Sustainable Scholars. All rights reserved.</p>
+    </div>
+</footer>
+<script>
+    function openChat() {
+      document.getElementById("chatPopup").style.display = "block";
+    }
+  
+    function closeChat() {
+      document.getElementById("chatPopup").style.display = "none";
+    }
+  </script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
